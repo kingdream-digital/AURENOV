@@ -1,0 +1,13 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import ComparisonPage from './pages/ComparisonPage';
+import { Concept1, Concept2, Concept3 } from './pages/Concepts';
+import './styles/global.css';
+import './styles/concepts.css';
+import './styles/concept3-scale.css';
+const path=window.location.pathname.replace(/\/$/,'')||'/';
+const pages:Record<string,React.ComponentType>={'/':ComparisonPage,'/concept-1':Concept1,'/concept-2':Concept2,'/concept-3':Concept3};
+const titles:Record<string,string>={'/':'Trois regards sur votre confort','/concept-1':'Ligne d’architecture','/concept-2':'Précision intérieure','/concept-3':'La maison, simplement'};
+document.title=`Aurenov — ${titles[path]||'Page introuvable'} | Climatisation, électricité & plomberie`;
+const Page=pages[path];
+createRoot(document.getElementById('root')!).render(<React.StrictMode><a className="skip-link" href="#accueil">Aller au contenu</a>{Page?<Page/>:<main className="section" id="accueil"><h1>Cette page n’existe pas.</h1><a href="/">Retrouver les trois concepts</a></main>}</React.StrictMode>);

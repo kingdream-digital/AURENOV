@@ -1,0 +1,53 @@
+/* Concept 03: the larger desktop presentation requested after visual review.
+   CSS zoom enlarges type, controls, imagery and spacing together without the
+   clipped layout produced by transform: scale(). Smaller devices stay native.
+   Viewport-based lengths are compensated because vw does not shrink with zoom. */
+@media (min-width: 1101px) {
+  .c3 { zoom: 1.5; }
+  .c3 .header { padding-inline: 3.33vw; gap: 20px; }
+  .c3 .site-nav { gap: 22px; }
+  .c3 .switcher { padding-inline: 2.67vw; }
+  .c3 .section { padding: 85px 4vw; }
+  .c3 .section h2 { font-size: clamp(34px, 2.4vw, 55px); }
+  .c3 .hero-three { padding: 40px 4vw 55px; gap: 2.67vw; }
+  .c3 .hero-three h1 { font-size: clamp(48px, 3.4vw, 77px); }
+  .c3 .hero-three-visual { height: 535px; padding-left: 24px; }
+  .c3 .hero-three-copy > p { font-size: 14px; }
+  .c3 .hero-three .actions { gap: 16px; }
+  .c3 .warm-caption { padding: 22px 26px; }
+  .c3 .warm-strip { padding-inline: 4vw; }
+  .c3 .warm-values { gap: 5.33vw; }
+  .c3 .feature-three { gap: 4.67vw; }
+  .c3 .contact { gap: 6vw; }
+  .c3 .contact h2 { font-size: 52px; }
+  .c3 footer { padding-inline: 4vw; }
+}
+/* The scaled content has the same usable width as a smaller laptop. */
+@media (min-width: 1101px) and (max-width: 1500px) {
+  .c3 .header .logo { width: 77px; }
+  .c3 .header-cta { margin-left: auto; }
+  .c3 .menu-toggle { display: block; }
+  .c3 .site-nav {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: #faf9f4; padding: 20px 4vw; flex-direction: column;
+    gap: 0; box-shadow: 0 12px 15px #0001;
+  }
+  .c3 .site-nav.open { display: flex; }
+  .c3 .site-nav a { padding: 13px 0; border-bottom: 1px solid #ced6cf; }
+  .c3 .hero-three .actions { flex-direction: column; align-items: flex-start; }
+  .c3 .hero-three-visual { height: 510px; }
+  .c3 .hero-three h1 { font-size: 47px; }
+  .c3 .steps { grid-template-columns: 1fr 1fr; }
+  .c3 .values { gap: 25px; }
+  .c3 .faq { gap: 35px; }
+  .c3 .contact { grid-template-columns: 1fr; gap: 40px; }
+  .c3 .contact-copy > p { max-width: 500px; }
+  .c3 .footer-main { flex-wrap: wrap; }
+}
+.c3 .warm-photo { height: auto; }
+.c3 .warm-photo > .photo[src$="climatisation-detail.jpg"] {
+  height: auto;
+  aspect-ratio: 1400 / 933;
+  object-fit: cover;
+  object-position: center;
+}
